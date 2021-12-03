@@ -3,14 +3,13 @@ import { useState } from "react";
 
 export default function Contador() {
   const [contador, setContador] = useState(0);
-  const [teste, setTeste] = useState(5);
 
   function somar() {
-    setContador(contador + teste);
+    setContador(contador + 1);
   }
 
   function subtarir() {
-    setTeste(teste - contador);
+    setTeste(contador - 1);
   }
 
   return (
