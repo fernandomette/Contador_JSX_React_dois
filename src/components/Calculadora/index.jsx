@@ -1,10 +1,12 @@
 import "./index.css";
 import { useState } from "react";
 
-export default function Contador() {
+export default function Calculadora() {
   const [resultado, setResultado] = useState(0);
 
-  var listadehistorico = [(listaulli = [])];
+  var listaulli = [""];
+
+  var listadehistorico = [(listaulli)];
 
   function CriaUlLI(array) {
     var listhistoricoul = document.createElement("ul");
@@ -27,9 +29,9 @@ export default function Contador() {
 
     setResultado(resultado + numeroDigitado);
 
-    listaulli.splice(0, qualquer.length);
+    listaulli.splice(0, listaulli.length);
 
-    listaulli.push(valoranterior, " + ", numeroDigitado, " = ", resultado);
+    listaulli.push(valorResultadoanterior, " + ", numeroDigitado, " = ", resultado);
 
     document
       .getElementById("listahistorico")
@@ -43,9 +45,9 @@ export default function Contador() {
 
     setResultado(resultado - numeroDigitado);
 
-    listaulli.splice(0, qualquer.length);
+    listaulli.splice(0, listaulli.length);
 
-    listaulli.push(valoranterior, " - ", numeroDigitado, " = ", resultado);
+    listaulli.push(valorResultadoanterior, " - ", numeroDigitado, " = ", resultado);
 
     document
       .getElementById("listahistorico")
@@ -59,9 +61,9 @@ export default function Contador() {
 
     setResultado(resultado * numeroDigitado);
 
-    listaulli.splice(0, qualquer.length);
+    listaulli.splice(0, listaulli.length);
 
-    listaulli.push(valoranterior, " x ", numeroDigitado, " = ", resultado);
+    listaulli.push(valorResultadoanterior, " x ", numeroDigitado, " = ", resultado);
 
     document
       .getElementById("listahistorico")
@@ -71,14 +73,16 @@ export default function Contador() {
   function dividir() {
     var numeroDigitado = 0;
 
+    var valorResultadoanterior = resultado;
+
     if (numeroDigitado == 0) {
       numeroDigitado = 0;
 
       setResultado(numeroDigitado);
 
-      listaulli.splice(0, qualquer.length);
+      listaulli.splice(0, listaulli.length);
 
-      listaulli.push(valoranterior, " / ", numeroDigitado, " = ", resultado);
+      listaulli.push(valorResultadoanterior, " / ", numeroDigitado, " = ", resultado);
 
       document
         .getElementById("listahistorico")
@@ -86,9 +90,9 @@ export default function Contador() {
     } else {
       setResultado(resultado / numeroDigitado);
 
-      listaulli.splice(0, qualquer.length);
+      listaulli.splice(0, listaulli.length);
 
-      listaulli.push(valoranterior, " / ", numeroDigitado, " = ", resultado);
+      listaulli.push(valorResultadoanterior, " / ", numeroDigitado, " = ", resultado);
 
       document
         .getElementById("listahistorico")
@@ -99,22 +103,35 @@ export default function Contador() {
   function zerarresultado() {
     setResultado(0);
   }
+  
+  /**
+  
+    <div>
+      <button onClick={somar}>Somar(+)</button>
+      <button onClick={diminuir}>Diminuir(-)</button>
+      <button onClick={multiplicar}>Multiplicar(x)</button>
+      <button onClick={dividir}>Dividir(/)</button>
+
+      <h3>{resultado}</h3>
+
+      <button onClick={zerarresultado}>Zerar Resultado</button>
+      <br> </br>
+
+      <div id="listahistorico"></div>
+    </div>
+  </div>
+*/
 
   return (
     <div className="calculadora">
-      <div>
-        <button onClick={somar}>Somar (+)</button>
-        <button onClick={diminuir}>Diminuir (-)</button>
-        <button onClick={multiplicar}>Multiplicar (x)</button>
-        <button onClick={dividir}>Dividir (/)</button>
-
-        <p>{Resultado}</p>
-
-        <button onClick={zerarresultado}>Zerar Resultado</button>
-        <br> </br>
-
-        <div id="listahistorico"></div>
-      </div>
+      <h3>{resultado}</h3>
+      <button onClick={somar}>Somar (+)</button>
+      <button onClick={diminuir}>Diminuir (-)</button>
+      <button onClick={multiplicar}>Multiplicar (x)</button>
+      <button onClick={dividir}>Dividir (/)</button>
+      <button onClick={zerarresultado}>Zerar Resultado</button>
+      <div id="listahistorico"></div>
     </div>
+
   );
 }

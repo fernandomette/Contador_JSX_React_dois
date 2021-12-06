@@ -9,7 +9,7 @@ export default function Contador() {
   }
 
   function subtarir() {
-    setTeste(contador - 1);
+    setContador(contador - 1);
   }
 
   return (

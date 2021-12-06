@@ -1,12 +1,5 @@
 .calculadora {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #888;
-  height: 200px;
-  width: 200px;
-  font-size: 5em;
 }
 
 body {
@@ -14,15 +7,13 @@ body {
   font-family: arial, sans-serif;
 }
 
-h1 {
-  font-size: 48px;
-  color: #066a75;
-  padding: 10px 0;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
+h3 {
+  font-size: 100px;
   text-align: center;
-  padding-bottom: 30px;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
+
 
 ul li {
   background: #eee;
