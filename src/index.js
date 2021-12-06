@@ -6,8 +6,8 @@ import Contador from './components/contador';
 import Calculadora from './components/Calculadora';
 
 ReactDOM.render(
-  <div>
-    <Calculadora />
-  </div>,
+    <div>
+      <Calculadora />
+    </div>,
   document.getElementById('root')
 );

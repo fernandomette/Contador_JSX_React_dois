@@ -14,11 +14,19 @@ h3 {
   text-align: center;
 }
 
-
 ul li {
   background: #eee;
   font-size: 18px;
   text-align: center;
   font-family: Arial, sans-serif;
   text-align: center;
+}
+
+#caixanumerodigitado{
+  background: #eee;
+  font-size: 60px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  size: 5;
 }
