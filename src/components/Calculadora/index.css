@@ -1,4 +1,4 @@
-.contador {
+.calculadora {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,26 +9,25 @@
   font-size: 5em;
 }
 
-body 
-    {
-    text-align: center;
-    font-family: arial, sans-serif;
-    }
-            
-h1{
-    font-size: 48px;
-    color: #066a75;
-    padding: 10px 0;
-    font-family: Arial,sans-serif;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 30px;
+body {
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  color: #066a75;
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 ul li {
-background: #eee;
-font-size: 18px;
-text-align: center;
-font-family: Arial,sans-serif;
-text-align: center;
+  background: #eee;
+  font-size: 18px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
