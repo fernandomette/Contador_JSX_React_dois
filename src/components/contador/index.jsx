@@ -1,7 +1,7 @@
 import "./index.css";
 import { useEffect, useState } from "react";
 
-export default function Contador() {
+export default function Contador({ nome }) {
   const [contador, setContador] = useState(0);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Contador() {
   return (
     <div className="wrapper">
       <div className="contador">
-        <h6>Joao</h6>
+        <h6>{nome}</h6>
         {contador}
         <div>
           <button onClick={somar}>Mais</button>

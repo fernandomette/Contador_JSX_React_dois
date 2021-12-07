@@ -8,8 +8,6 @@ import Calculadora from "./components/Calculadora";
 ReactDOM.render(
   <div>
     <Calculadora />
-    <Contador />
-    <Contador />
   </div>,
   document.getElementById("root")
 );

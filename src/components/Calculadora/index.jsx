@@ -3,16 +3,19 @@ import { useEffect, useState } from "react";
 
 export default function Calculadora() {
   const [resultado, setResultado] = useState(0);
-  const [ResultadoAnterior, setResultadoAnterior] = useState(0);
-
-  useEffect(()=>{
-    setResultadoAnterior(resultado);
-  },[resultado])
 
   var listaulli = [""];
 
-  var listadehistorico = [(listaulli)];
-  
+  var listadehistorico = [listaulli];
+
+  let utimocomando = 0;
+
+  document.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      console.log(utimocomando);
+    }
+  });
+
   function CriaUlLI(array) {
     var listhistoricoul = document.createElement("ul");
 
@@ -28,20 +31,30 @@ export default function Calculadora() {
   }
 
   function somar() {
-    var numeroDigitado = recebeZeroseVazio(parseFloat(document.getElementById("caixanumerodigitado").value));
+    var numeroDigitado = recebeZeroseVazio(
+      parseFloat(document.getElementById("caixanumerodigitado").value)
+    );
 
     var valorResultadoanterior = resultado;
 
-    //var pegaResultado = resultado + numeroDigitado;
+    var pegaResultado = resultado + numeroDigitado;
 
-    setResultado(resultado + numeroDigitado);
+    setResultado(pegaResultado);
 
     listaulli.splice(0, listaulli.length);
 
-    listaulli.push(valorResultadoanterior, " + ", numeroDigitado, " = ", resultado);
+    listaulli.push(
+      valorResultadoanterior,
+      " + ",
+      numeroDigitado,
+      " = ",
+      pegaResultado
+    );
+
+    utimocomando = 1;
 
     document.getElementById("caixanumerodigitado").value = "";
-    document.getElementById('caixanumerodigitado').focus();
+    document.getElementById("caixanumerodigitado").focus();
 
     document
       .getElementById("listahistorico")
@@ -49,7 +62,9 @@ export default function Calculadora() {
   }
 
   function diminuir() {
-    var numeroDigitado = recebeZeroseVazio(parseFloat(document.getElementById("caixanumerodigitado").value));
+    var numeroDigitado = recebeZeroseVazio(
+      parseFloat(document.getElementById("caixanumerodigitado").value)
+    );
 
     var valorResultadoanterior = resultado;
 
@@ -59,10 +74,18 @@ export default function Calculadora() {
 
     listaulli.splice(0, listaulli.length);
 
-    listaulli.push(valorResultadoanterior, " - ", numeroDigitado, " = ", pegaResultado);
+    listaulli.push(
+      valorResultadoanterior,
+      " - ",
+      numeroDigitado,
+      " = ",
+      pegaResultado
+    );
+
+    utimocomando = 2;
 
     document.getElementById("caixanumerodigitado").value = "";
-    document.getElementById('caixanumerodigitado').focus();
+    document.getElementById("caixanumerodigitado").focus();
 
     document
       .getElementById("listahistorico")
@@ -70,7 +93,9 @@ export default function Calculadora() {
   }
 
   function multiplicar() {
-    var numeroDigitado = recebeZeroseVazio(parseFloat(document.getElementById("caixanumerodigitado").value));
+    var numeroDigitado = recebeZeroseVazio(
+      parseFloat(document.getElementById("caixanumerodigitado").value)
+    );
 
     var valorResultadoanterior = resultado;
 
@@ -80,10 +105,18 @@ export default function Calculadora() {
 
     listaulli.splice(0, listaulli.length);
 
-    listaulli.push(valorResultadoanterior, " x ", numeroDigitado, " = ", pegaResultado);
+    listaulli.push(
+      valorResultadoanterior,
+      " x ",
+      numeroDigitado,
+      " = ",
+      pegaResultado
+    );
+
+    utimocomando = 3;
 
     document.getElementById("caixanumerodigitado").value = "";
-    document.getElementById('caixanumerodigitado').focus();
+    document.getElementById("caixanumerodigitado").focus();
 
     document
       .getElementById("listahistorico")
@@ -91,7 +124,9 @@ export default function Calculadora() {
   }
 
   function dividir() {
-    var numeroDigitado = recebeZeroseVazio(parseFloat(document.getElementById("caixanumerodigitado").value));
+    var numeroDigitado = recebeZeroseVazio(
+      parseFloat(document.getElementById("caixanumerodigitado").value)
+    );
 
     var valorResultadoanterior = resultado;
 
@@ -102,26 +137,39 @@ export default function Calculadora() {
 
       listaulli.splice(0, listaulli.length);
 
-      listaulli.push(valorResultadoanterior, " / ", numeroDigitado, " = ", numeroDigitado);
+      listaulli.push(
+        valorResultadoanterior,
+        " / ",
+        numeroDigitado,
+        " = ",
+        numeroDigitado
+      );
+
+      utimocomando = 4;
 
       document.getElementById("caixanumerodigitado").value = "";
-      document.getElementById('caixanumerodigitado').focus();
+      document.getElementById("caixanumerodigitado").focus();
 
       document
         .getElementById("listahistorico")
         .appendChild(CriaUlLI(listadehistorico[0]));
     } else {
-
       var pegaResultado = resultado / numeroDigitado;
 
       setResultado(pegaResultado);
 
       listaulli.splice(0, listaulli.length);
 
-      listaulli.push(valorResultadoanterior, " / ", numeroDigitado, " = ", pegaResultado);
+      listaulli.push(
+        valorResultadoanterior,
+        " / ",
+        numeroDigitado,
+        " = ",
+        pegaResultado
+      );
 
       document.getElementById("caixanumerodigitado").value = "";
-      document.getElementById('caixanumerodigitado').focus();
+      document.getElementById("caixanumerodigitado").focus();
 
       document
         .getElementById("listahistorico")
@@ -132,31 +180,35 @@ export default function Calculadora() {
   function zerarresultado() {
     setResultado(0);
     document.getElementById("caixanumerodigitado").value = "";
-    document.getElementById('caixanumerodigitado').focus();
+    document.getElementById("caixanumerodigitado").focus();
+    utimocomando = 0;
   }
 
   function recebeZeroseVazio(valorCaixadeTexto) {
-    
     if (isNaN(valorCaixadeTexto)) {
       valorCaixadeTexto = 0;
-    }else{
+    } else {
       valorCaixadeTexto = valorCaixadeTexto;
     }
-      
-    return valorCaixadeTexto
+
+    return valorCaixadeTexto;
   }
 
   return (
     <div className="calculadora">
-        <input id="caixanumerodigitado" name="caixanumerodigitado" size="5" autofocus = "autofocus"/>
-        <h3>{resultado}</h3>
-        <button onClick={somar}>Somar (+)</button>
-        <button onClick={diminuir}>Diminuir (-)</button>
-        <button onClick={multiplicar}>Multiplicar (x)</button>
-        <button onClick={dividir}>Dividir (/)</button>
-        <button onClick={zerarresultado}>Zerar Resultado</button>
-        <div id="listahistorico"></div>
+      <input
+        id="caixanumerodigitado"
+        name="caixanumerodigitado"
+        size="5"
+        autofocus="autofocus"
+      />
+      <h3>{resultado}</h3>
+      <button onClick={somar}>Somar (+)</button>
+      <button onClick={diminuir}>Diminuir (-)</button>
+      <button onClick={multiplicar}>Multiplicar (x)</button>
+      <button onClick={dividir}>Dividir (/)</button>
+      <button onClick={zerarresultado}>Zerar Resultado</button>
+      <div id="listahistorico"></div>
     </div>
-
   );
 }
