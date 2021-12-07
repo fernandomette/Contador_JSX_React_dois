@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 export default function Contador() {
   const [contador, setContador] = useState(0);
 
-  useEffect(()=>{
-    console.log("entrou")
-  },[contador])
-
+  useEffect(() => {
+    console.log("entrou");
+  }, [contador]);
 
   function somar() {
     setContador(contador + 1);
@@ -20,6 +19,7 @@ export default function Contador() {
   return (
     <div className="wrapper">
       <div className="contador">
+        <h6>Joao</h6>
         {contador}
         <div>
           <button onClick={somar}>Mais</button>
