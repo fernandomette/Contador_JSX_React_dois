@@ -1,8 +1,13 @@
 import "./index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Calculadora() {
   const [resultado, setResultado] = useState(0);
+  const [ResultadoAnterior, setResultadoAnterior] = useState(0);
+
+  useEffect(()=>{
+    setResultadoAnterior(resultado);
+  },[resultado])
 
   var listaulli = [""];
 
@@ -27,13 +32,13 @@ export default function Calculadora() {
 
     var valorResultadoanterior = resultado;
 
-    var pegaResultado = resultado + numeroDigitado;
+    //var pegaResultado = resultado + numeroDigitado;
 
-    setResultado(pegaResultado);
+    setResultado(resultado + numeroDigitado);
 
     listaulli.splice(0, listaulli.length);
 
-    listaulli.push(valorResultadoanterior, " + ", numeroDigitado, " = ", pegaResultado);
+    listaulli.push(valorResultadoanterior, " + ", numeroDigitado, " = ", resultado);
 
     document.getElementById("caixanumerodigitado").value = "";
     document.getElementById('caixanumerodigitado').focus();

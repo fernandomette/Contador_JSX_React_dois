@@ -1,8 +1,13 @@
 import "./index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Contador() {
   const [contador, setContador] = useState(0);
+
+  useEffect(()=>{
+    console.log("entrou")
+  },[contador])
+
 
   function somar() {
     setContador(contador + 1);
