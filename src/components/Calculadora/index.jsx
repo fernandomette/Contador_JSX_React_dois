@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 export default function Calculadora() {
   const [resultado, setResultado] = useState(0);
+  const [NovoValor, setNovoValor] = useState(0);
+  const [addLista, setLista] = useState(0);
 
   var listaulli = [""];
 
@@ -31,9 +33,7 @@ export default function Calculadora() {
   }
 
   function somar() {
-    var numeroDigitado = recebeZeroseVazio(
-      parseFloat(document.getElementById("caixanumerodigitado").value)
-    );
+    var numeroDigitado = recebeZeroseVazio( parseFloat(NovoValor));
 
     var valorResultadoanterior = resultado;
 
@@ -52,9 +52,6 @@ export default function Calculadora() {
     );
 
     utimocomando = 1;
-
-    document.getElementById("caixanumerodigitado").value = "";
-    document.getElementById("caixanumerodigitado").focus();
 
     document
       .getElementById("listahistorico")
@@ -194,6 +191,14 @@ export default function Calculadora() {
     return valorCaixadeTexto;
   }
 
+  function inputValue(ValorRecebido) {
+    setNovoValor(ValorRecebido.target.value);
+  }
+
+  function inputValuedelista(ListaValor) {
+    setLista(ListaValor.target.value);
+  }
+
   return (
     <div className="calculadora">
       <input
@@ -201,6 +206,7 @@ export default function Calculadora() {
         name="caixanumerodigitado"
         size="5"
         autofocus="autofocus"
+        onChange={inputValue}
       />
       <h3>{resultado}</h3>
       <button onClick={somar}>Somar (+)</button>
@@ -208,7 +214,9 @@ export default function Calculadora() {
       <button onClick={multiplicar}>Multiplicar (x)</button>
       <button onClick={dividir}>Dividir (/)</button>
       <button onClick={zerarresultado}>Zerar Resultado</button>
-      <div id="listahistorico"></div>
+      
+      <div id="listahistorico" onChange={inputValuedelista}></div>
+
     </div>
   );
 }

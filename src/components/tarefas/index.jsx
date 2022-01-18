@@ -1,8 +1,9 @@
 import "./index.css";
 import { useEffect, useState } from "react";
 
+
 export default function Tarefas({ Responsavel }) {
-  const [Listatarefas, setListatarefa] = useState(["Passear Cao"]);
+  const [Listatarefas, setListatarefa] = useState([""]);
   const [NovaTarefa, setNovaTarefa] = useState("");
 
   function inputNovaTarefa(valorrecebido) {
