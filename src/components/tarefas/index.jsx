@@ -3,25 +3,27 @@ import { useEffect, useState } from "react";
 
 
 export default function Tarefas({ Responsavel }) {
-  const [Listatarefas, setListatarefa] = useState([""]);
-  const [NovaTarefa, setNovaTarefa] = useState("");
+  const [ListTask, setListTask] = useState([""]);
+  const [TextFild, setTextFild] = useState("");
 
-  function inputNovaTarefa(valorrecebido) {
-    console.log(valorrecebido.target.value);
-    setNovaTarefa(valorrecebido.target.value);
+  function inputNewTask(value) {
+   console.log(value.target.value);
+   setTextFild(value.target.value);
   }
 
-  function adicionarListaTarefa() {
-    setListatarefa([...Listatarefas, NovaTarefa]);
+  function addListTask() {
+   setListTask([...ListTask, TextFild]);
+   setTextFild("");
+   console.log(TextFild);
   }
 
   return (
-    <div className="Listatarefas">
+    <div className="ListTask">
       <h1>{Responsavel}</h1>
-      <input type="text" onChange={inputNovaTarefa} />
-      <button onClick={adicionarListaTarefa}>Adicionar</button>
+      <input Value={TextFild} type="text" onChange={inputNewTask} />
+      <button onClick={addListTask}>Adicionar</button>
 
-      <h1>{Listatarefas}</h1>
+      <h1>{ListTask}</h1>
     </div>
   );
 }
