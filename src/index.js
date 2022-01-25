@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Tarefas from "./components/tarefas";
-import AddTarefas from "./components/AddTarefas";
-
+import Calculadora from "./components/Calculadora";
+import Tarefa from "./components/Tarefa";
 
 ReactDOM.render(
-  <div>
-    <AddTarefas />
-    <Tarefas />
-  </div>,
+  
+  <React.StrictMode> 
+    <Tarefa />
+  </React.StrictMode>,  
+  
   document.getElementById("root")
+
 );
