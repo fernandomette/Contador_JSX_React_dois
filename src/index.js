@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Calculadora from "./components/Calculadora";
-import Tarefa from "./components/Tarefa";
+import Menu from "./Menu";
 
 ReactDOM.render(
   
   <React.StrictMode> 
-    <Tarefa />
+    <Menu />
   </React.StrictMode>,  
   
   document.getElementById("root")
