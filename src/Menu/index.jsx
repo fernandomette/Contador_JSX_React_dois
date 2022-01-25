@@ -12,6 +12,11 @@ const Menu = () => {
       completed: false,
     },
     {
+      id: '1',
+      title: "Estudar Programação",
+      completed: false,
+    },
+    {
       id: '2',
       title: "Ser Fodão",
       completed: true,

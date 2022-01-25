@@ -1,12 +1,11 @@
 import React from "react";
+import "./PropTask.css";
 
 const PropTask = ({task}) => {
 
     return (
-        <div className="container"> 
-            <h1>{task.id}</h1>
-            <h1>{task.title}</h1>
-            <h1>{task.completed}</h1>
+        <div className="PropTask-container">
+            {task.title}
         </div>
     );
 }
