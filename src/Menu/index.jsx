@@ -2,6 +2,7 @@ import "./index.css";
 import React from "react";
 import Tasks from "../components/Tasks";
 import { useState } from "react";
+import AddTask from "../components/Tasks/AddTask";
 
 
 const Menu = () => {
@@ -16,11 +17,6 @@ const Menu = () => {
       title: "Estudar Programação",
       completed: false,
     },
-    {
-      id: '2',
-      title: "Ser Fodão",
-      completed: true,
-    }
   ]);
     
   
@@ -28,6 +24,7 @@ const Menu = () => {
     <div className="container"> 
 
       <h1>Minhas Tarefas</h1>
+      <AddTask />
       <Tasks tasks={tasks}/>
 
     </div>
