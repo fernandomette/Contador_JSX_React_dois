@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import "./index.css";
 import Tasks from "../components/Tasks";
+import Header from "../components/header";
 import { v4 as uuidv4 } from "uuid";
 
 import AddTask from "../components/Tasks/AddTask";
@@ -17,7 +18,7 @@ const Menu = () => {
     },
     {
       id: '2',
-      title: "Estudar Programação",
+      title: "Estudar React",
       completed: true,
     },
   ]);
@@ -55,9 +56,9 @@ const Menu = () => {
   return (
     <div className="container"> 
 
-      <h1>Minhas Tarefas</h1>
+      <Header />
       <AddTask handleTaskAddition={handleTaskAddition}/>
-      <Tasks tasks={tasks} handleTaskClick={handleTaskClick, handleTaskDeletion}/>
+      <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
 
     </div>
   )
