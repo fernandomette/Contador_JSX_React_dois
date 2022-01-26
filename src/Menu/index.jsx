@@ -4,7 +4,6 @@ import Tasks from "../components/Tasks";
 import { useState } from "react";
 import AddTask from "../components/Tasks/AddTask";
 
-
 const Menu = () => {
   const [tasks, settasks] = useState([
     {
