@@ -37,18 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "https://fernandomette-contador-nodejs.netlify.app/",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fernandomette/contador_react.git"
-  },
-  "author": "Fernando Mette",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/fernandomette/contador_react/issues"
-  },
-  "homepage": "https://github.com/fernandomette/contador_react#readme"
+  }
 }
