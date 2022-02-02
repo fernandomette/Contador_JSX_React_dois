@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import TaskDetails from "../components/TaksDetails";
 import "./index.css";
 import Tasks from "../components/Tasks";
 import Header from "../components/header";
@@ -16,27 +14,12 @@ const Menu = () => {
     {
       id: '1',
       title: "Estudar Programação",
-      completed: true,
+      completed: false,
     },
     {
       id: '2',
       title: "Estudar React",
-      completed: false,
-    },
-    {
-      id: '3',
-      title: "Treinar com a Towty",
-      completed: false,
-    },
-    {
-      id: '4',
-      title: "Estudar Nodejs",
-      completed: false,
-    },
-    {
-      id: '5',
-      title: "Estudar MariadDB",
-      completed: false,
+      completed: true,
     },
   ]);
 
@@ -71,23 +54,15 @@ const Menu = () => {
 	};
       
   return (
-    <Router> 
-      <div className="container"> 
-        <Header />
-        <Route path="/" exact render={() => (
-          <>
-            <AddTask handleTaskAddition={handleTaskAddition}/>
-            <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
-          </>
-        )}
-        />
-        
-        <Route path="/:taskTitle" exact component={TaskDetails} />
+    <div className="container"> 
 
-      </div>
-    </Router>
-  );
-};
+      <Header />
+      <AddTask handleTaskAddition={handleTaskAddition}/>
+      <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
+
+    </div>
+  )
+}
 
 export default Menu;
 
